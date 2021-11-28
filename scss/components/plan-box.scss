@@ -1,0 +1,147 @@
+.box {
+  padding: 24px;
+  display: block;
+  margin-top: 25px;
+  border-radius: 5px;
+  border: 1px solid #dbdbdb;
+  &:focus,
+  &.selected {
+    outline: 1px solid $darkCyan;
+    form {
+      display: flex;
+    }
+  }
+
+  &.out-of-stock {
+    opacity: 0.3;
+    user-select: none;
+    pointer-events: none;
+    .btn {
+      background-color: $black;
+    }
+  }
+
+  & > div:first-child {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 50px 1fr 100px;
+    @media (max-width: $breakPoint - 1) {
+      grid-template-columns: 40px 1fr;
+      div {
+        display: grid;
+        gap: 10px;
+      }
+    }
+
+    .subTitle {
+      color: $moderateCyan;
+      font-weight: 500;
+      @media (min-width: $breakPoint) {
+        margin-left: 20px;
+      }
+    }
+    .left {
+      justify-self: end;
+    }
+  }
+
+  & > div:last-of-type {
+    margin-top: 30px;
+    @media (min-width: $breakPoint) {
+      margin-top: 20px;
+      margin-left: 50px;
+    }
+    p {
+      @media (max-width: $breakPoint - 1) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .left {
+    font-weight: 500;
+    span {
+      font-size: 1.3em;
+      margin-right: 5px;
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+    & + span {
+      width: 25px;
+      height: 25px;
+      display: block;
+      border-radius: 50%;
+      border: 1px solid #dbdbdb;
+    }
+    &:checked + span {
+      border-color: $darkCyan;
+      background: radial-gradient(
+        $darkCyan 0%,
+        $darkCyan 40%,
+        transparent 50%,
+        transparent
+      );
+    }
+  }
+
+  form {
+    display: none;
+    padding-top: 24px;
+    margin-top: 25px;
+    position: relative;
+    &::before {
+      content: "";
+      width: calc(100% + 48px);
+      height: 1px;
+      background-color: #dbdbdb;
+
+      position: absolute;
+      top: 0;
+      left: -24px;
+    }
+    @media (max-width: 991px) {
+      flex-wrap: wrap;
+      p {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+
+    .btn {
+      width: 115px;
+      margin-left: 15px;
+    }
+
+    div.input {
+      width: 100px;
+      position: relative;
+
+      span {
+        left: 24px;
+        top: 15px;
+        position: absolute;
+      }
+
+      input[type="number"] {
+        color: $black;
+        width: 100%;
+        height: 48px;
+        font-weight: 700;
+        border-radius: 25px;
+        text-align: center;
+        appearance: textfield;
+        caret-color: $darkCyan;
+        border: 1px solid #dbdbdb;
+        &:focus {
+          outline: 1px solid $darkCyan;
+        }
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+        }
+      }
+    }
+  }
+}

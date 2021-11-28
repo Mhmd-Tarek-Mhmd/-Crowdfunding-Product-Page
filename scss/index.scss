@@ -1,0 +1,225 @@
+@import "helpers/variables";
+@import "helpers/global";
+@import "helpers/utilities";
+
+/*
+** Header area
+*/
+@import "components/header";
+
+/*
+** Main area
+*/
+main {
+  position: relative;
+
+  .container {
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 325px;
+    @media (min-width: $breakPoint) {
+      width: 730px;
+    }
+
+    & > div {
+      margin-bottom: 24px;
+      border-radius: 5px;
+      padding: 50px 24px 40px;
+      background-color: #fff;
+      border: 1px solid $lightGray;
+      @media (min-width: $breakPoint) {
+        padding: 48px;
+      }
+    }
+  }
+
+  // [1] Header
+  .header {
+    text-align: center;
+
+    .logo {
+      left: 50%;
+      top: -28px;
+      position: absolute;
+      transform: translateX(-50%);
+    }
+    h1 {
+      @media (max-width: $breakPoint - 1) {
+        font-size: 1.5em;
+      }
+    }
+    p {
+      margin: 20px 0 25px;
+    }
+
+    .btn {
+      width: 204px;
+      height: 56px;
+      font-size: 1.1em;
+      border-radius: 30px;
+      @media (max-width: $breakPoint - 1) {
+        flex: 1;
+        margin-right: 10px;
+      }
+    }
+    .bookmark {
+      height: 56px;
+      line-height: 56px;
+      user-select: none;
+      border-radius: 30px;
+      background-color: $lightGray;
+      & > * {
+        pointer-events: none;
+      }
+      &:hover {
+        svg circle {
+          fill: #707070;
+        }
+      }
+      svg circle {
+        will-change: fill;
+        transition: fill 0.3s;
+      }
+      span {
+        padding: 25px;
+        cursor: default;
+        font-weight: 700;
+        padding-left: 15px;
+      }
+
+      &.bookmarked {
+        svg {
+          circle {
+            fill: $darkCyan;
+          }
+          path {
+            fill: #fff;
+          }
+        }
+        span {
+          color: $darkCyan;
+        }
+      }
+    }
+  }
+
+  // [2] Stats
+  .stats {
+    text-align: center;
+    & > div {
+      @media (max-width: $breakPoint - 1) {
+        flex-direction: column;
+      }
+      @media (min-width: $breakPoint) {
+        justify-content: space-evenly;
+      }
+    }
+
+    h3 {
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+    small {
+      font-weight: 500;
+    }
+
+    .progress-bar {
+      height: 12px;
+      margin-top: 35px;
+      border-radius: 10px;
+      background-color: $lightGray;
+      span {
+        width: 89.14%;
+        height: 100%;
+        display: block;
+        border-radius: inherit;
+        background-color: $darkCyan;
+      }
+    }
+
+    .separator {
+      width: 80px;
+      height: 1px;
+      margin: 27px auto 35px;
+      background-color: $moderateGray;
+      @media (min-width: $breakPoint) {
+        margin: 0;
+        width: 1px;
+        height: 45px;
+      }
+    }
+  }
+
+  // [3] About
+  .about {
+    h2 {
+      font-size: 1.4em;
+    }
+    h2 + p {
+      margin: 35px 0;
+    }
+  }
+
+  // [4] Boxes
+  .main-boxes {
+    margin-top: 40px;
+
+    .box div:first-child,
+    .box div:last-child {
+      margin: 0;
+      display: flex;
+      @media (max-width: $breakPoint - 1) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .box p {
+      margin: 35px auto 30px;
+    }
+
+    .box .subTitle {
+      @media (max-width: $breakPoint - 1) {
+        margin-top: 10px;
+      }
+    }
+
+    .box .left {
+      margin-bottom: 30px;
+      span {
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+/*
+** Modals
+*/
+.modals {
+  .modal-backdrop {
+    position: fixed;
+    overflow-y: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $overlayColor;
+  }
+  .modal {
+    width: 327px;
+    min-height: auto;
+    border-radius: 5px;
+    position: absolute;
+    background-color: #fff;
+    &:focus {
+      outline: none;
+      text-decoration: none;
+    }
+  }
+  @import "components/modal-default";
+  @import "components/modal-completed";
+}
+@import "components/plan-box.scss";

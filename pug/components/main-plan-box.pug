@@ -1,0 +1,16 @@
+mixin box(title, subTitle, paragraph, left)
+  -var titleLowerCase = title.toLowerCase().replace(/ /gi, '-')
+
+    div(class=`box ${titleLowerCase} ${left == 0 ? 'out-of-stock' : ''}`)
+      .space-between-flex
+        h4.title=title
+        span.subTitle=subTitle
+
+      p=paragraph
+
+      .space-between-flex
+        span.left #[span.title #{left}] left
+        if left == 0
+          button.btn(disabled) Out of Stock
+        else
+          button.btn Select Reward

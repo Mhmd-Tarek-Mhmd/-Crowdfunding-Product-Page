@@ -1,0 +1,54 @@
+doctype html
+html(lang="en")
+  head
+    include layouts/meta
+    title Crowdfunding product page
+    include layouts/links
+  body
+    // Header area
+    include components/header
+
+    // Main area
+    main
+      .container
+        //- [1] Header
+        div.header
+          img.logo(src="images/logo-mastercraft.svg", alt="Mastercraft Logo")
+          h1.title Mastercraft Bamboo Monitor Riser
+          p A beautifully handcrafted monitor stand to reduce neck and eye strain.
+          div.space-between-flex
+            button.btn Back this project
+            button.bookmark.center-flex(aria-labelledby='label')
+              svg(xmlns="http://www.w3.org/2000/svg" width="56" height="56")
+                g(fill="none" fill-rule="evenodd")
+                  circle(fill="#2F2F2F" cx="28" cy="28" r="28")
+                  path(fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z")
+              span#label.mobile-hide Bookmark
+
+        //- [2] Stats
+        div.stats
+          div.center-flex
+            div #[h3.backed.title $#[span 89,914]] #[small of $100,000 backed]
+            .separator
+            div #[h3.total-backers.title 5,007] #[small total backers]
+            .separator
+            div #[h3.title 56] #[small days left]
+          .progress-bar #[span]
+
+        //- [3] About
+        div.about
+          h2.title About this project
+          p The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve your posture and make you more comfortable while at work, helping you stay focused on the task at hand.
+          p Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer to allow notepads, pens, and USB sticks to be stored under the stand.
+
+          #main-boxes.main-boxes
+            include components/main-plan-box
+            +box('Bamboo Stand', 'Pledge $25 or more', "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.", '101')
+            +box('Black Edition Stand', 'Pledge $75 or more', "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.", '64')
+            +box('Mahogany Special Edition', 'Pledge $200 or more', "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.", '0')
+
+    .modals
+      include components/modal-completed
+      include components/modal-default
+
+    script(src="index.js")

@@ -1,0 +1,44 @@
+.btn {
+  width: 157px;
+  height: 48px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 48px;
+  text-align: center;
+  border-radius: 25px;
+  will-change: background-color;
+  background-color: $moderateCyan;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: $darkCyan;
+  }
+}
+.title {
+  color: $black;
+  font-weight: 700;
+}
+
+.center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.space-between-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hide {
+  display: none;
+}
+.mobile-hide {
+  @media (max-width: $breakPoint - 1) {
+    display: none;
+  }
+}
+.screen-hide {
+  @media (min-width: $breakPoint) {
+    display: none;
+  }
+}

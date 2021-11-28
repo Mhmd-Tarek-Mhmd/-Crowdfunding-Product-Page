@@ -1,0 +1,29 @@
+.modal-completed {
+  text-align: center;
+  border-radius: 5px;
+  padding: 32px 27px 40px;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  @media (min-width: $breakPoint) {
+    width: 540px;
+    padding: 48px 53px;
+  }
+  h4 {
+    margin-top: 25px;
+    font-size: 1.3em;
+    @media (min-width: $breakPoint) {
+      margin-top: 45px;
+      font-size: 1.5em;
+    }
+  }
+  p {
+    margin: 20px 0 35px;
+    @media (max-width: $breakPoint - 1) {
+      margin-top: 25px;
+    }
+  }
+  button {
+    width: 107px;
+  }
+}

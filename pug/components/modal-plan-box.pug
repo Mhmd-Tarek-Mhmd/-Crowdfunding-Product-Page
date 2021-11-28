@@ -1,0 +1,25 @@
+mixin box(title, price, paragraph, left)
+  -var titleLowerCase = title.toLowerCase().replace(/ /gi, '-')
+
+    div(class=`box ${titleLowerCase} ${left == 0 ? 'out-of-stock' : ''}`, tabindex=`${left == 0 ? '-1' : '0'}`, aria-labelledby=`${titleLowerCase}-label ${titleLowerCase}-sub-label`, aria-describedby=`${titleLowerCase}-description`)
+      div
+        input(type="radio", name='modal-default', disabled=`${left == 0 ? true : false}`)
+        span
+        div
+          span(id=`${titleLowerCase}-label` class='title')=title
+          span(id=`${titleLowerCase}-sub-label` class='subTitle') Pledge $#[span.price= price] or more
+        span.left.mobile-hide #[span.title #{left}] left
+
+      div
+        p(id=`${titleLowerCase}-description`)=paragraph
+        span.left.screen-hide #[span.title #{left}] left
+
+      form.space-between-flex
+        p Enter your pledge
+        div.center-flex
+          if left == 0
+            div.input #[span $] #[input(type="number", disabled)]
+            input(type="submit", value='Out of Stock', , class='btn', disabled)
+          else
+            div.input #[span $] #[input(type="number", value=price, min=price, max=price, onkeypress='event.preventDefault()')]
+            input(type="submit", value='Continue', class='btn')

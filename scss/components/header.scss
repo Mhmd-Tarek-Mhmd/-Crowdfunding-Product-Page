@@ -1,0 +1,74 @@
+header {
+  height: 300px;
+  background-size: cover;
+  background-image: url(images/image-hero-mobile.jpg);
+  @media (min-width: $breakPoint) {
+    height: 400px;
+
+    background-image: url(images/image-hero-desktop.jpg);
+  }
+
+  nav {
+    position: relative;
+    padding: 24px 30px;
+    @media (min-width: $breakPoint) {
+      padding: 48px 0;
+      justify-content: space-around !important;
+    }
+    &.has-modal {
+      & > button,
+      & > .logo {
+        z-index: 2;
+      }
+    }
+
+    ul {
+      a {
+        color: #fff;
+      }
+      li:nth-child(even) {
+        margin: 0 30px;
+      }
+      li:hover {
+        text-decoration: underline;
+      }
+    }
+
+    @media (max-width: $breakPoint - 1) {
+      .mobile-links {
+        z-index: 1;
+        position: fixed;
+        overflow-y: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $overlayColor;
+
+        ul {
+          top: 70px;
+          left: 24px;
+          display: block;
+          position: absolute;
+          border-radius: 5px;
+          width: calc(100% - 48px);
+          background-color: #fff;
+        }
+        a {
+          color: $black;
+          display: block;
+          font-size: 18px;
+          font-weight: 500;
+        }
+        li {
+          padding: 24px;
+        }
+        li:nth-child(even) {
+          margin: 0;
+          border-top: 1px solid;
+          border-bottom: 1px solid;
+        }
+      }
+    }
+  }
+}
