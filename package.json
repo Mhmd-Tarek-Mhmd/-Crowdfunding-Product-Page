@@ -10,7 +10,6 @@
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
-    "gulp-live-server": "^0.0.31",
     "gulp-pug": "^5.0.0",
     "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.2",
