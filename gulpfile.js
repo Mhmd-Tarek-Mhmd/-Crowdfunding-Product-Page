@@ -3,34 +3,37 @@ const gulp = require("gulp"),
   sass = require("gulp-sass")(require("sass")),
   autoprefixer = require("gulp-autoprefixer"),
   babel = require("gulp-babel"),
-  uglify = require("gulp-uglify");
+  uglify = require("gulp-uglify"),
+  gls = require("gulp-live-server");
 
 // HTML Tasks
 gulp.task("html", () =>
-  gulp.src("pug/index.pug").pipe(pug()).pipe(gulp.dest("dist"))
+  gulp.src("src/pug/**/*.pug").pipe(pug()).pipe(gulp.dest("dist"))
 );
 
 // CSS Tasks
 gulp.task("css", () =>
   gulp
-    .src("scss/index.scss")
+    .src("src/scss/**/*.scss")
     .pipe(sass({ outputStyle: "compressed" }))
     .pipe(autoprefixer("last 2 versions"))
-    .pipe(gulp.dest("dist"))
+    .pipe(gulp.dest("dist/assets"))
 );
 
 // JS Tasks
 gulp.task("js", () =>
   gulp
-    .src("js/index.js")
-    .pipe(babel({ presets: ["@babel/env"] }))
+    .src("src/js/**/*.js")
+    .pipe(babel())
     .pipe(uglify())
-    .pipe(gulp.dest("dist"))
+    .pipe(gulp.dest("dist/assets"))
 );
 
 // Watch All Tasks
 gulp.task("default", () => {
-  gulp.watch("pug/**/*.pug", gulp.series("html"));
-  gulp.watch("scss/**/*.scss", gulp.series("css"));
-  gulp.watch("js/index.js", gulp.series("js"));
+  gls.static("dist", 8000).start();
+
+  gulp.watch("src/pug/**/*.pug", gulp.series("html"));
+  gulp.watch("src/scss/**/*.scss", gulp.series("css"));
+  gulp.watch("src/js/**/*.js", gulp.series("js"));
 });

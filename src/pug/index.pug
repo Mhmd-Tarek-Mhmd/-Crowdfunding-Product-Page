@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+  //- Page head
+  include components/head
+
+  body
+    // Header area
+    include layouts/header
+
+    // Main area
+    include layouts/main
+
+    // Modals
+    .modals
+      include components/modal-completed
+      include components/modal-default
+
+    //- Scripts
+    script(src="assets/index.js")

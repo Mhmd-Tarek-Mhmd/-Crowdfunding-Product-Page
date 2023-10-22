@@ -130,8 +130,8 @@ const $$ = document.querySelectorAll.bind(document);
       $("nav button").onclick = function () {
         const img = $("nav button img");
         const imgSrc = [
-          "images/icon-hamburger.svg",
-          "images/icon-close-menu.svg",
+          "assets/images/icon-hamburger.svg",
+          "assets/images/icon-close-menu.svg",
         ];
 
         $("body").classList.toggle("has-modal");
