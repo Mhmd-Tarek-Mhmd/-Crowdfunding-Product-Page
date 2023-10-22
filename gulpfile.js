@@ -8,13 +8,13 @@ const gulp = require("gulp"),
 
 // HTML Tasks
 gulp.task("html", () =>
-  gulp.src("src/pug/**/*.pug").pipe(pug()).pipe(gulp.dest("dist"))
+  gulp.src("src/pug/index.pug").pipe(pug()).pipe(gulp.dest("dist"))
 );
 
 // CSS Tasks
 gulp.task("css", () =>
   gulp
-    .src("src/scss/**/*.scss")
+    .src("src/scss/index.scss")
     .pipe(sass({ outputStyle: "compressed" }))
     .pipe(autoprefixer("last 2 versions"))
     .pipe(gulp.dest("dist/assets"))
@@ -23,7 +23,7 @@ gulp.task("css", () =>
 // JS Tasks
 gulp.task("js", () =>
   gulp
-    .src("src/js/**/*.js")
+    .src("src/js/index.js")
     .pipe(babel())
     .pipe(uglify())
     .pipe(gulp.dest("dist/assets"))
